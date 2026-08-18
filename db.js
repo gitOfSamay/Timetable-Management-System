@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     ssl: {
-        ca: fs.readFileSync("./ca.pem")
+        ca: fs.readFileSync(require("path").join(__dirname, "ca.pem"))
     }
 });
 

@@ -1,2 +1,9 @@
 node_modules/
 .env
+
+# Local database backups
+timetable_backup.sql
+timetable_backup_aiven.sql
+
+# Aiven SSL certificate
+ca.pem

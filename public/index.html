@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Timetable Management System</h1>
+
+        <p>DBMS Mini Project</p>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- ===============================
+             ADD TIMETABLE
+        ================================ -->
+
+        <section class="card">
+
+            <h2>Add Timetable</h2>
+
+            <form id="timetableForm">
+
+
+                <!-- DAY -->
+
+                <label>
+
+                    Day
+
+                    <select id="day" required>
+
+                        <option value="">
+                            Select Day
+                        </option>
+
+                        <option value="Monday">
+                            Monday
+                        </option>
+
+                        <option value="Tuesday">
+                            Tuesday
+                        </option>
+
+                        <option value="Wednesday">
+                            Wednesday
+                        </option>
+
+                        <option value="Thursday">
+                            Thursday
+                        </option>
+
+                        <option value="Friday">
+                            Friday
+                        </option>
+
+                        <option value="Saturday">
+                            Saturday
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- START TIME -->
+
+                <label>
+
+                    Start Time
+
+                    <input
+                        type="time"
+                        id="startTime"
+                        required
+                    >
+
+                </label>
+
+
+                <!-- END TIME -->
+
+                <label>
+
+                    End Time
+
+                    <input
+                        type="time"
+                        id="endTime"
+                        required
+                    >
+
+                </label>
+
+
+                <!-- SUBJECT -->
+
+                <label>
+
+                    Subject
+
+                    <select id="subject" required>
+
+                        <option value="">
+                            Loading subjects...
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- TEACHER -->
+
+                <label>
+
+                    Teacher
+
+                    <select id="teacher" required>
+
+                        <option value="">
+                            Loading teachers...
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- ROOM -->
+
+                <label>
+
+                    Room
+
+                    <select id="room" required>
+
+                        <option value="">
+                            Loading rooms...
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <button type="submit">
+
+                    Add Timetable
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- ===============================
+             CURRENT TIMETABLE
+        ================================ -->
+
+        <section class="card">
+
+            <h2>Current Timetable</h2>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Day</th>
+
+                        <th>Time</th>
+
+                        <th>Subject</th>
+
+                        <th>Teacher</th>
+
+                        <th>Room</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="timetableBody">
+
+                    <tr>
+
+                        <td colspan="6">
+                            Loading timetable...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

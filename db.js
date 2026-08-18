@@ -1,6 +1,9 @@
 const mysql = require("mysql2");
 const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
+
+const caPath = path.join(__dirname, "ca.pem");
 
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -8,8 +11,9 @@ const connection = mysql.createConnection({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+
     ssl: {
-        ca: fs.readFileSync(require("path").join(__dirname, "ca.pem"))
+        ca: fs.readFileSync(caPath)
     }
 });
 
@@ -22,7 +26,6 @@ connection.connect((err) => {
 
     console.log("Aiven MySQL database connected successfully!");
 
-    // Check database and user
     connection.query(
         "SELECT DATABASE() AS db, CURRENT_USER() AS user, @@hostname AS host",
         (queryErr, results) => {
@@ -34,7 +37,6 @@ connection.connect((err) => {
             console.log("Node.js database information:");
             console.table(results);
 
-            // Check departments table
             connection.query(
                 "SELECT * FROM departments LIMIT 5",
                 (queryErr, results) => {
